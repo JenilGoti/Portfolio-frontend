@@ -247,13 +247,21 @@ Important:
 
 The contact form uses Netlify Forms.
 
-The form is already configured with:
+Because this project uses the Netlify Next.js runtime, the form is registered through a static file:
+
+```text
+public/__forms.html
+```
+
+The visible React form posts to Netlify using the same form name:
 
 ```tsx
 name="contact"
 method="POST"
-data-netlify="true"
+action="/contact-success"
 ```
+
+Do not add `data-netlify="true"` directly to the React/Next form. The Netlify Next.js runtime can fail the build when it discovers forms inside prerendered Next content.
 
 After deployment, submissions should appear in your Netlify site dashboard under Forms.
 

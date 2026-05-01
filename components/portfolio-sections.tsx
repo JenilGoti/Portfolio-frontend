@@ -312,7 +312,7 @@ export function ContactForm({ info }: { info: PersonalInfo }) {
         </p>
         {info.email ? <a href={`mailto:${info.email}`}>{info.email}</a> : null}
       </div>
-      <form className="contact-form reveal reveal--late" name="contact" method="POST" data-netlify="true">
+      <form className="contact-form reveal reveal--late" name="contact" method="POST" action="/contact-success">
         <input type="hidden" name="form-name" value="contact" />
         <label>
           Name
