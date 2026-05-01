@@ -16,9 +16,13 @@ type ParsedListItem = {
   body: string;
 };
 
-const socketUrl = (process.env.NEXT_PUBLIC_AGENT_SOCKET_URL ?? "http://localhost:8000").replace(/\/$/, "");
-const socketPath = process.env.NEXT_PUBLIC_AGENT_SOCKET_PATH ?? "/socket.io";
+const socketUrl = (process.env.NEXT_PUBLIC_AGENT_SOCKET_URL ?? "http://localhost:8000").replace(/\/+$/, "");
+const socketPath = `/${(process.env.NEXT_PUBLIC_AGENT_SOCKET_PATH ?? "socket.io").replace(/^\/+/, "")}`;
 const threadId = process.env.NEXT_PUBLIC_AGENT_THREAD_ID ?? "portfolio-chat";
+const socketTransports = (process.env.NEXT_PUBLIC_AGENT_SOCKET_TRANSPORTS ?? "websocket")
+  .split(",")
+  .map((transport) => transport.trim())
+  .filter(Boolean) as Array<"websocket" | "polling">;
 
 export function PortfolioAgentChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -60,7 +64,7 @@ export function PortfolioAgentChat() {
   useEffect(() => {
     const socket = io(socketUrl, {
       path: socketPath,
-      transports: ["polling", "websocket"]
+      transports: socketTransports
     });
 
     socketRef.current = socket;

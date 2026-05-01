@@ -214,6 +214,7 @@ Local default:
 NEXT_PUBLIC_AGENT_SOCKET_URL=http://localhost:8000
 NEXT_PUBLIC_AGENT_SOCKET_PATH=/socket.io
 NEXT_PUBLIC_AGENT_THREAD_ID=portfolio-chat
+NEXT_PUBLIC_AGENT_SOCKET_TRANSPORTS=websocket
 ```
 
 Create or update `.env`:
@@ -222,6 +223,7 @@ Create or update `.env`:
 NEXT_PUBLIC_AGENT_SOCKET_URL=http://localhost:8000
 NEXT_PUBLIC_AGENT_SOCKET_PATH=/socket.io
 NEXT_PUBLIC_AGENT_THREAD_ID=portfolio-chat
+NEXT_PUBLIC_AGENT_SOCKET_TRANSPORTS=websocket
 ```
 
 If testing from another device on the same Wi-Fi, do not use `localhost`. Use your machine IP:
@@ -234,6 +236,8 @@ For deployment, use the deployed backend URL:
 
 ```text
 NEXT_PUBLIC_AGENT_SOCKET_URL=https://your-agent-backend.example.com
+NEXT_PUBLIC_AGENT_SOCKET_PATH=/socket.io
+NEXT_PUBLIC_AGENT_SOCKET_TRANSPORTS=websocket
 ```
 
 Important:
@@ -242,6 +246,8 @@ Important:
 - After changing env variables on Netlify, trigger a new deploy.
 - A deployed HTTPS portfolio should connect to an HTTPS/WSS backend, not an HTTP backend.
 - Your backend must allow the Netlify site origin in CORS.
+- For ngrok, remove trailing slashes from the URL. Use `https://your-ngrok-domain.ngrok-free.dev`, not `https://your-ngrok-domain.ngrok-free.dev/`.
+- The frontend defaults to `websocket` transport to avoid ngrok XHR polling errors.
 
 ## Contact Form
 
@@ -336,6 +342,7 @@ Add these if you use the AI agent:
 NEXT_PUBLIC_AGENT_SOCKET_URL=https://your-agent-backend.example.com
 NEXT_PUBLIC_AGENT_SOCKET_PATH=/socket.io
 NEXT_PUBLIC_AGENT_THREAD_ID=portfolio-chat
+NEXT_PUBLIC_AGENT_SOCKET_TRANSPORTS=websocket
 ```
 
 Do not set the deployed backend URL to `localhost`.
