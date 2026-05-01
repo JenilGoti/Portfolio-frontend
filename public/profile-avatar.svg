@@ -1,0 +1,18 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#08111F"/>
+  <circle cx="214" cy="154" r="170" fill="#21D4A8" fill-opacity=".2"/>
+  <circle cx="744" cy="264" r="230" fill="#5F8CFF" fill-opacity=".16"/>
+  <path d="M112 835C190 663 309 577 469 577C629 577 747 663 826 835V1100H112V835Z" fill="#10233B"/>
+  <path d="M286 874C342 806 401 772 463 772C525 772 584 806 640 874" stroke="#21D4A8" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="456" cy="397" r="183" fill="#E7EEF9"/>
+  <path d="M274 402C310 270 386 204 502 204C598 226 653 291 668 400C647 333 604 297 538 291C474 286 420 304 375 346C339 379 305 397 274 402Z" fill="#0B1728"/>
+  <path d="M326 491C366 545 410 572 459 572C510 572 556 545 597 491" stroke="#10233B" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="391" cy="407" r="16" fill="#10233B"/>
+  <circle cx="530" cy="407" r="16" fill="#10233B"/>
+  <path d="M276 762L456 644L637 762L588 1100H325L276 762Z" fill="#152B49"/>
+  <path d="M456 644L522 754L456 839L390 754L456 644Z" fill="#21D4A8"/>
+  <path d="M133 201L174 160L215 201L174 242L133 201Z" fill="#21D4A8"/>
+  <path d="M706 673L751 628L796 673L751 718L706 673Z" fill="#F59E0B"/>
+  <path d="M640 119C716 139 766 191 790 275" stroke="#21D4A8" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 30"/>
+  <text x="450" y="1012" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="72" font-weight="800" text-anchor="middle">JG</text>
+</svg>

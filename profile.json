@@ -1,0 +1,314 @@
+{
+    "personal_info": {
+        "name": "Jenil Jagdishbhai Goti",
+        "profile_image": "/profile_picuture.png",
+        "cv_file": "/jenil-goti-cv.pdf",
+        "date_of_birth": "2002-10-20",
+        "place_of_birth": "Gujarat, India",
+        "nationality": "Indian",
+        "phone": "+49 15563492099",
+        "email": "jenilgoti421@gmail.com",
+        "linkedin": "Jenil Goti",
+        "github": "JenilGoti",
+        "linkedin_id": "https://www.linkedin.com/in/en-jenil-goti/",
+        "github_id": "https://github.com/JenilGoti",
+        "address": "Rombacher Straße 91, 73430, Aalen, Germany",
+        "current_location": "Aalen, Germany",
+        "highlight": "AI Engineer | Machine Learning & Generative AI | LLMs, Agents, Evaluation | Building production-ready AI products | M.Sc. @ Hochschule Aalen"
+    },
+    "summary": "AI & ML Engineer with a strong focus on Agentic AI and LLM Engineering — designing and building intelligent multi-agent systems that can reason, plan, and act autonomously. Specialized in developing end-to-end agentic pipelines using LangGraph and LangChain, combining RAG, tool use, and feedback loops. Strong foundation in deep learning, computer vision, and NLP.",
+    "skills": {
+        "core": [
+            "Python",
+            "Data Structures and Algorithms",
+            "Git",
+            "Database Management",
+            "Cloud Computing",
+            "SQL",
+            "Software Development",
+            "Web Design",
+            "Web Development"
+        ],
+        "ai_ml": [
+            "Data Preprocessing & Pipelines",
+            "Deep Learning",
+            "Computer Vision",
+            "Natural Language Processing",
+            "Data Analytics",
+            "Feature Engineering",
+            "Model Training, Evaluation & Optimization"
+        ],
+        "agentic_ai": [
+            "Large Language Models",
+            "LLM Evaluation & Debugging",
+            "AI Agents & Multi-Agent Systems",
+            "LangChain",
+            "LangGraph",
+            "Retrieval-Augmented Generation (RAG)",
+            "Conversational AI & Chatbot Development"
+        ],
+        "libraries_tools": [
+            "PyTorch",
+            "Scikit-learn",
+            "NumPy",
+            "Pandas"
+        ],
+        "soft_skills": [
+            "Teamwork",
+            "Organizational Skills",
+            "Decision Making",
+            "Planning Skills"
+        ]
+    },
+    "experience": [
+        {
+            "role": "Artificial Intelligence & Machine Learning Engineer",
+            "company": "Annotate Hub AI",
+            "location": "Surat, India",
+            "start_date": "2024-08",
+            "end_date": "2025-03",
+            "website": "https://www.annotatehub.ai/",
+            "responsibilities": [
+                "Design and develop end-to-end AI and ML solutions for client projects",
+                "Experiment with different models to select optimal solutions",
+                "Deploy and train pretrained ML models on AWS EC2",
+                "Build REST APIs using FastAPI to serve ML models"
+            ]
+        },
+        {
+            "role": "Artificial Intelligence & Machine Learning Engineer Intern",
+            "company": "Annotate Hub AI",
+            "location": "Surat, India",
+            "start_date": "2024-05",
+            "end_date": "2024-07",
+            "responsibilities": [
+                "Develop and train ML models for classification and prediction",
+                "Perform data preprocessing and feature engineering",
+                "Evaluate models and improve accuracy",
+                "Work on data annotation projects",
+                "Promoted to full-time role within 3 months"
+            ]
+        },
+        {
+            "role": "Web Developer Intern",
+            "company": "OMS Vision Solutions Ltd",
+            "location": "Surat, India",
+            "start_date": "2024-01",
+            "end_date": "2024-04",
+            "responsibilities": [
+                "Develop responsive web applications using React and Next.js",
+                "Integrate authentication with AWS Cognito",
+                "Collaborate on API development using AWS API Gateway",
+                "Optimize frontend performance"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "German Administrative Process Navigator",
+            "date": "2026-04",
+            "type": "MSc Project",
+            "status": "In Progress",
+            "description": "AI agent to help users navigate German administrative systems using Neo4j graph modeling. Detects circular dependencies and provides optimized paths.",
+            "technologies": [
+                "LangGraph",
+                "LangChain",
+                "Neo4j",
+                "Ollama"
+            ],
+            "concepts": [
+                "Knowledge Graph",
+                "RAG",
+                "Agentic AI"
+            ]
+        },
+        {
+            "name": "AI Research Agent",
+            "date": "2026-03-31",
+            "description": "Multi-agent research assistant that autonomously searches, scrapes, and generates structured reports with self-feedback loop.",
+            "technologies": [
+                "LangGraph",
+                "Sentence Transformers",
+                "Qdrant",
+                "Streamlit"
+            ],
+            "features": [
+                "Planner, Tool Executor, Writer, Critic agents",
+                "Self-review loop",
+                "RAG pipeline"
+            ],
+            "github": "https://github.com/JenilGoti/research_agent"
+        },
+        {
+            "name": "Football Player Tracker",
+            "date": "2026-01",
+            "description": "Real-time football tracking system using YOLOv8 and ByteTrack",
+            "technologies": [
+                "YOLOv8",
+                "PyTorch",
+                "CUDA",
+                "Gradio"
+            ],
+            "metrics": {
+                "mAP@50": "84%",
+                "precision": "95.6%",
+                "recall": "78.8%"
+            },
+            "github": "https://github.com/JenilGoti/Football-Player-Tracker"
+        },
+        {
+            "name": "Human Action Detection",
+            "date": "2025-10",
+            "description": "Image classification model recognizing 15 human actions using ResNet18",
+            "technologies": [
+                "ResNet18",
+                "Transfer Learning",
+                "CNN"
+            ],
+            "github": "https://github.com/JenilGoti/Human_Action_Detaction"
+        },
+        {
+            "name": "Toxic Comment Classification",
+            "date": "2025-06",
+            "description": "Multi-label NLP classifier using BERT for detecting toxic comments",
+            "technologies": [
+                "BERT",
+                "Transformers",
+                "NLP"
+            ],
+            "metrics": [
+                "F1-score",
+                "AUC-ROC"
+            ],
+            "github": "https://github.com/JenilGoti/toxic-comment-classification"
+        },
+        {
+            "name": "Heart Disease Prediction",
+            "date": "2024-07-30",
+            "description": "ML model predicting heart disease probability using patient data",
+            "metrics": {
+                "precision": "99.99%",
+                "recall": "99.99%"
+            },
+            "github": "https://github.com/JenilGoti/Heart_Disease_Prediction"
+        },
+        {
+            "name": "Lane Line Detection",
+            "date": "2024-06",
+            "description": "Lane detection system using OpenCV and image processing",
+            "technologies": [
+                "Python",
+                "OpenCV"
+            ],
+            "github": "https://github.com/JenilGoti/Lane_Line_Detaction"
+        },
+        {
+            "name": "MES VisionX",
+            "date": "2024-04",
+            "description": "Manufacturing execution system using AWS and Next.js",
+            "technologies": [
+                "AWS",
+                "Next.js",
+                "REST API"
+            ]
+        },
+        {
+            "name": "Advanced Reliable Real Estate Portal",
+            "date": "2023-11",
+            "description": "Online real estate platform using Node.js and Express",
+            "technologies": [
+                "Node.js",
+                "Express.js"
+            ],
+            "github": "https://github.com/JenilGoti/Advanced-Reliable-Real-Estate-Portal"
+        }
+    ],
+    "education": [
+        {
+            "degree": "MSc Machine Learning and Data Analytics",
+            "institution": "Hochschule Aalen",
+            "location": "Aalen, Germany",
+            "status": "Current",
+            "subjects": [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Deep Learning",
+                "Natural Language Processing",
+                "Data Analytics",
+                "Big Data",
+                "Database Technologies"
+            ]
+        },
+        {
+            "degree": "Bachelor of Engineering (Computer Engineering)",
+            "institution": "Shree Swami Atmanand Saraswati Institute of Technology",
+            "location": "Surat, India",
+            "grade": "8.49/10"
+        },
+        {
+            "degree": "Higher Secondary School (Science)",
+            "institution": "Ankur Vidhaya Bhavan",
+            "grade": "79.38%"
+        },
+        {
+            "degree": "Secondary School",
+            "institution": "Ankur Vidhaya Bhavan",
+            "grade": "84.83%"
+        }
+    ],
+    "publications": [
+        {
+            "title": "Hybrid Approaches for Image Registration",
+            "description": "Research comparing hybrid methods for medical and satellite image alignment, showing up to 399% improvement."
+        }
+    ],
+    "testimonials": [
+        {
+            "quote": "Builds AI systems with a strong balance of research thinking, practical engineering, and clean product delivery.",
+            "name": "AI Project Collaboration",
+            "role": "Delivery signal"
+        },
+        {
+            "quote": "Comfortable moving from model experimentation to deployment details, API design, and user-facing implementation.",
+            "name": "ML Engineering Work",
+            "role": "Technical strength"
+        },
+        {
+            "quote": "Brings a structured approach to agentic AI workflows, evaluation loops, and production-ready prototypes.",
+            "name": "Agentic AI Focus",
+            "role": "Portfolio highlight"
+        }
+    ],
+    "certifications": [
+        {
+            "name": "Machine Learning",
+            "provider": "Simplilearn"
+        },
+        {
+            "name": "Career Essentials in Cybersecurity",
+            "provider": "Microsoft & LinkedIn"
+        },
+        {
+            "name": "Generative AI Studio",
+            "provider": "Google Cloud"
+        }
+    ],
+    "languages": [
+        {
+            "language": "English",
+            "level": "C1"
+        },
+        {
+            "language": "German",
+            "level": "A2"
+        },
+        {
+            "language": "Gujarati",
+            "level": "Native"
+        },
+        {
+            "language": "Hindi",
+            "level": "Native"
+        }
+    ]
+}
