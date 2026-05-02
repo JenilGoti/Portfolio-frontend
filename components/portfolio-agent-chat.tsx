@@ -16,6 +16,14 @@ type ParsedListItem = {
   body: string;
 };
 
+type ParsedBulletSection = {
+  title: string;
+  items: Array<{
+    title: string;
+    body: string;
+  }>;
+};
+
 const socketUrl = (process.env.NEXT_PUBLIC_AGENT_SOCKET_URL ?? "http://localhost:8000").replace(/\/+$/, "");
 const socketPath = `/${(process.env.NEXT_PUBLIC_AGENT_SOCKET_PATH ?? "socket.io").replace(/^\/+/, "")}`;
 const threadId = process.env.NEXT_PUBLIC_AGENT_THREAD_ID ?? "portfolio-chat";
@@ -236,8 +244,55 @@ export function PortfolioAgentChat() {
 
 function AgentResponse({ text }: { text: string }) {
   const parsed = parseAgentText(text);
+  const bulletSections = parseBulletSections(text);
 
   if (!parsed.items.length) {
+    if (bulletSections.sections.length) {
+      return (
+        <div className="agent-rich-text">
+          {bulletSections.intro ? <p>{renderInlineText(bulletSections.intro)}</p> : null}
+          <div className="agent-section-list">
+            {bulletSections.sections.map((section) => (
+              <section className="agent-answer-section" key={section.title}>
+                <h3>{renderInlineText(section.title.replace(/:$/, ""))}</h3>
+                <div className="agent-result-list">
+                  {section.items.map((item) => (
+                    <article className="agent-result-card agent-result-card--bullet" key={`${section.title}-${item.title}`}>
+                      <strong>
+                        <span aria-hidden="true" />
+                        {renderInlineText(item.title)}
+                      </strong>
+                      {item.body ? <p>{renderInlineText(item.body)}</p> : null}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+          {bulletSections.outro ? <p>{renderInlineText(bulletSections.outro)}</p> : null}
+        </div>
+      );
+    }
+
+    const compactBullets = parseCompactBullets(text);
+
+    if (compactBullets.length) {
+      return (
+        <div className="agent-rich-text">
+          <div className="agent-result-list agent-result-list--compact">
+            {compactBullets.map((item) => (
+              <article className="agent-result-card agent-result-card--bullet" key={item}>
+                <strong>
+                  <span aria-hidden="true" />
+                  {renderInlineText(item)}
+                </strong>
+              </article>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     return <div className="agent-rich-text">{renderInlineText(text)}</div>;
   }
 
@@ -258,6 +313,66 @@ function AgentResponse({ text }: { text: string }) {
       {parsed.outro ? <p>{renderInlineText(parsed.outro)}</p> : null}
     </div>
   );
+}
+
+function parseCompactBullets(text: string) {
+  const trimmed = text.trim();
+
+  if (!trimmed.startsWith("*")) return [];
+
+  return trimmed
+    .split(/\s+\*\s+/)
+    .map((item) => item.replace(/^\*\s*/, "").trim())
+    .filter(Boolean);
+}
+
+function parseBulletSections(text: string) {
+  const headingMatches = [...text.matchAll(/((?:Jenil|His|Her|Their|The|These|He|She)[^:*]{0,180}?:)\s*(?=\*)/gi)];
+
+  if (!headingMatches.length || !text.includes("*")) {
+    return { intro: "", sections: [] as ParsedBulletSection[], outro: "" };
+  }
+
+  const intro = text.slice(0, headingMatches[0].index).trim();
+  let outro = "";
+
+  const sections = headingMatches
+    .map((match, index) => {
+      const start = (match.index ?? 0) + match[0].length;
+      const next = headingMatches[index + 1]?.index ?? text.length;
+      let sectionText = text.slice(start, next).trim();
+      const outroMatch = sectionText.match(/^(.*?)(\s+(?:Overall,|Together,|In summary,|He has also|She has also|Jenil also).*)$/);
+
+      if (outroMatch && index === headingMatches.length - 1) {
+        sectionText = outroMatch[1].trim();
+        outro = outroMatch[2].trim();
+      }
+
+      const bulletItems = [...sectionText.matchAll(/\*\s+(.+?)(?=\s+\*\s+|$)/g)].map((bullet) => {
+        const value = bullet[1].trim();
+        const splitIndex = value.indexOf(":");
+
+        if (splitIndex > 0 && splitIndex < 80) {
+          return {
+            title: value.slice(0, splitIndex).trim(),
+            body: value.slice(splitIndex + 1).trim()
+          };
+        }
+
+        return {
+          title: value,
+          body: ""
+        };
+      });
+
+      return {
+        title: match[1].trim(),
+        items: bulletItems
+      };
+    })
+    .filter((section) => section.items.length);
+
+  return { intro, sections, outro };
 }
 
 function parseAgentText(text: string) {
